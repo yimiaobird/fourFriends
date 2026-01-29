@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: demo
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://182.92.182.241:3306?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    username: root
+    password: pangque_618
+
+logging:
+  level:
+    root: info
+    org.springframework: warn
+  file:
+    name: logs/log.log
+
+wechat:
+  app_id: "wx7d8ba10c1e15dacb"
+  app_secret: "4e46c24042f68e3f35e69cef55054b55"
