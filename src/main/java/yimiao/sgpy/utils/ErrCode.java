@@ -1,4 +1,4 @@
-package yimiao.demo.utils;
+package yimiao.sgpy.utils;
 
 public class ErrCode {
     int code;

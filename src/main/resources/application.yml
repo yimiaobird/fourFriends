@@ -1,14 +1,21 @@
 server:
-  port: 8081
+  port: 80
 
 spring:
   application:
     name: demo
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://182.92.182.241:3306?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
+    url: jdbc:mysql://182.92.182.241:3306/sgpy?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&allowMultiQueries=true
     username: root
     password: pangque_618
+
+mybatis:
+  mapper-locations: classpath:mapper/**/*Mapper.xml
+  type-aliases-package: yimiao.sgpy.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    use-generated-keys: true
 
 logging:
   level:
