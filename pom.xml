@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>yimiao</groupId>
-    <artifactId>demo</artifactId>
+    <artifactId>sgpy</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>demo</name>
-    <description>demo</description>
+    <name>sgpy</name>
+    <description>sgpy</description>
     <url/>
     <licenses>
         <license/>
@@ -66,6 +66,13 @@
             <artifactId>mysql-connector-j</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <!-- 推荐使用稳定版本，如 3.5.5 -->
+            <version>3.5.5</version>
+        </dependency>
+
     </dependencies>
 
     <build>

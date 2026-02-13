@@ -1,5 +1,15 @@
 server:
-  port: 80
+  # HTTPS 端口（默认443，若服务器443端口被占用可改其他，如8443）
+  port: 443
+  ssl:
+    # 证书文件路径（resources 根目录直接写文件名）
+    key-store: classpath:ssl.pfx
+    # 证书类型（PFX 证书对应 PKCS12）
+    key-store-type: PKCS12
+    # 证书密码（从 keystore.txt 中复制）
+    key-store-password: t3qx2pac
+    # 证书别名（默认即可，若有自定义需修改）
+    key-alias: sgpy.top
 
 spring:
   application:

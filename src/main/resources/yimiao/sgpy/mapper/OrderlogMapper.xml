@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="yimiao.sgpy.mapper.OrderlogMapper">
+
+    <resultMap id="BaseResultMap" type="yimiao.sgpy.entity.Orderlog">
+            <id property="id" column="id" />
+            <result property="orderid" column="orderId" />
+            <result property="orderstatus" column="orderStatus" />
+            <result property="starttime" column="startTime" />
+            <result property="endtime" column="endTime" />
+            <result property="startdate" column="startDate" />
+            <result property="enddate" column="endDate" />
+            <result property="duration" column="duration" />
+            <result property="storename" column="storeName" />
+            <result property="roomname" column="roomName" />
+            <result property="fullstarttime" column="fullStartTime" />
+            <result property="fullendtime" column="fullEndTime" />
+            <result property="orderno" column="orderNo" />
+            <result property="paytime" column="payTime" />
+            <result property="paidamount" column="paidAmount" />
+            <result property="xcxorderid" column="xcxOrderId" />
+            <result property="xcxorderstauts" column="xcxOrderStauts" />
+            <result property="storephone" column="storePhone" />
+            <result property="openid" column="openid" />
+            <result property="originalamount" column="originalAmount" />
+            <result property="latitude" column="latitude" />
+            <result property="longitude" column="longitude" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,orderId,orderStatus,startTime,endTime,startDate,
+        endDate,duration,storeName,roomName,fullStartTime,
+        fullEndTime,orderNo,payTime,paidAmount,xcxOrderId,
+        xcxOrderStauts,storePhone,openid,originalAmount,latitude,
+        longitude
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from orderlog
+        where  id = #{id} 
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from orderlog
+        where  id = #{id} 
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="yimiao.sgpy.entity.Orderlog" useGeneratedKeys="true">
+        insert into orderlog
+        ( id,orderId,orderStatus,startTime,endTime,startDate,
+        endDate,duration,storeName,roomName,fullStartTime,
+        fullEndTime,orderNo,payTime,paidAmount,xcxOrderId,
+        xcxOrderStauts,storePhone,openid,originalAmount,latitude,
+        longitude)
+        values (#{id},#{orderid},#{orderstatus},#{starttime},#{endtime},#{startdate},
+        #{enddate},#{duration},#{storename},#{roomname},#{fullstarttime},
+        #{fullendtime},#{orderno},#{paytime},#{paidamount},#{xcxorderid},
+        #{xcxorderstauts},#{storephone},#{openid},#{originalamount},#{latitude},
+        #{longitude})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="yimiao.sgpy.entity.Orderlog" useGeneratedKeys="true">
+        insert into orderlog
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">id,</if>
+                <if test="orderid != null">orderId,</if>
+                <if test="orderstatus != null">orderStatus,</if>
+                <if test="starttime != null">startTime,</if>
+                <if test="endtime != null">endTime,</if>
+                <if test="startdate != null">startDate,</if>
+                <if test="enddate != null">endDate,</if>
+                <if test="duration != null">duration,</if>
+                <if test="storename != null">storeName,</if>
+                <if test="roomname != null">roomName,</if>
+                <if test="fullstarttime != null">fullStartTime,</if>
+                <if test="fullendtime != null">fullEndTime,</if>
+                <if test="orderno != null">orderNo,</if>
+                <if test="paytime != null">payTime,</if>
+                <if test="paidamount != null">paidAmount,</if>
+                <if test="xcxorderid != null">xcxOrderId,</if>
+                <if test="xcxorderstauts != null">xcxOrderStauts,</if>
+                <if test="storephone != null">storePhone,</if>
+                <if test="openid != null">openid,</if>
+                <if test="originalamount != null">originalAmount,</if>
+                <if test="latitude != null">latitude,</if>
+                <if test="longitude != null">longitude,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+                <if test="id != null">#{id},</if>
+                <if test="orderid != null">#{orderid},</if>
+                <if test="orderstatus != null">#{orderstatus},</if>
+                <if test="starttime != null">#{starttime},</if>
+                <if test="endtime != null">#{endtime},</if>
+                <if test="startdate != null">#{startdate},</if>
+                <if test="enddate != null">#{enddate},</if>
+                <if test="duration != null">#{duration},</if>
+                <if test="storename != null">#{storename},</if>
+                <if test="roomname != null">#{roomname},</if>
+                <if test="fullstarttime != null">#{fullstarttime},</if>
+                <if test="fullendtime != null">#{fullendtime},</if>
+                <if test="orderno != null">#{orderno},</if>
+                <if test="paytime != null">#{paytime},</if>
+                <if test="paidamount != null">#{paidamount},</if>
+                <if test="xcxorderid != null">#{xcxorderid},</if>
+                <if test="xcxorderstauts != null">#{xcxorderstauts},</if>
+                <if test="storephone != null">#{storephone},</if>
+                <if test="openid != null">#{openid},</if>
+                <if test="originalamount != null">#{originalamount},</if>
+                <if test="latitude != null">#{latitude},</if>
+                <if test="longitude != null">#{longitude},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="yimiao.sgpy.entity.Orderlog">
+        update orderlog
+        <set>
+                <if test="orderid != null">
+                    orderId = #{orderid},
+                </if>
+                <if test="orderstatus != null">
+                    orderStatus = #{orderstatus},
+                </if>
+                <if test="starttime != null">
+                    startTime = #{starttime},
+                </if>
+                <if test="endtime != null">
+                    endTime = #{endtime},
+                </if>
+                <if test="startdate != null">
+                    startDate = #{startdate},
+                </if>
+                <if test="enddate != null">
+                    endDate = #{enddate},
+                </if>
+                <if test="duration != null">
+                    duration = #{duration},
+                </if>
+                <if test="storename != null">
+                    storeName = #{storename},
+                </if>
+                <if test="roomname != null">
+                    roomName = #{roomname},
+                </if>
+                <if test="fullstarttime != null">
+                    fullStartTime = #{fullstarttime},
+                </if>
+                <if test="fullendtime != null">
+                    fullEndTime = #{fullendtime},
+                </if>
+                <if test="orderno != null">
+                    orderNo = #{orderno},
+                </if>
+                <if test="paytime != null">
+                    payTime = #{paytime},
+                </if>
+                <if test="paidamount != null">
+                    paidAmount = #{paidamount},
+                </if>
+                <if test="xcxorderid != null">
+                    xcxOrderId = #{xcxorderid},
+                </if>
+                <if test="xcxorderstauts != null">
+                    xcxOrderStauts = #{xcxorderstauts},
+                </if>
+                <if test="storephone != null">
+                    storePhone = #{storephone},
+                </if>
+                <if test="openid != null">
+                    openid = #{openid},
+                </if>
+                <if test="originalamount != null">
+                    originalAmount = #{originalamount},
+                </if>
+                <if test="latitude != null">
+                    latitude = #{latitude},
+                </if>
+                <if test="longitude != null">
+                    longitude = #{longitude},
+                </if>
+        </set>
+        where   id = #{id} 
+    </update>
+    <update id="updateByPrimaryKey" parameterType="yimiao.sgpy.entity.Orderlog">
+        update orderlog
+        set 
+            orderId =  #{orderid},
+            orderStatus =  #{orderstatus},
+            startTime =  #{starttime},
+            endTime =  #{endtime},
+            startDate =  #{startdate},
+            endDate =  #{enddate},
+            duration =  #{duration},
+            storeName =  #{storename},
+            roomName =  #{roomname},
+            fullStartTime =  #{fullstarttime},
+            fullEndTime =  #{fullendtime},
+            orderNo =  #{orderno},
+            payTime =  #{paytime},
+            paidAmount =  #{paidamount},
+            xcxOrderId =  #{xcxorderid},
+            xcxOrderStauts =  #{xcxorderstauts},
+            storePhone =  #{storephone},
+            openid =  #{openid},
+            originalAmount =  #{originalamount},
+            latitude =  #{latitude},
+            longitude =  #{longitude}
+        where   id = #{id} 
+    </update>
+</mapper>
